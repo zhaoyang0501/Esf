@@ -252,10 +252,10 @@ document.write('</object>');
 		  <A href="<%=basePath%>outinfo.jsp?id=<%=jobList11.get(0).toString()%>" target=_blank><%=jobList11.get(1).toString()%></A>
 		   </TD>
 		   <TD align=center>
-		  <%=jobList11.get(3).toString()%>  
+		  <%=jobList11.get(3).toString()%> 平方
 		  </TD>
 		  <TD align=center>
-		  <%=jobList11.get(4).toString()%>  
+		  <%=jobList11.get(4).toString()%>  万
 		  </TD>
 		  <TD align=right>
 		  <%=jobList11.get(5).toString()%>  
@@ -277,75 +277,15 @@ document.write('</object>');
 	  <TBODY>
         <TR>
           <TD class=head colspan="2">
-            <SPAN class=TAG>求租信息</SPAN> 
+            <SPAN class=TAG>出售信息</SPAN> 
           </TD>
 		</TR>
 		<TR>
 		<TD  class=middle align="left" >
-               <TABLE class=xsnr id=tb1_nr1  cellSpacing=0 cellPadding=0 width="100%" border=0>
-                    <TBODY>
-                      <TR>
-          <TD  align=left>房屋类型</TD>
-		   <TD align=center>面积</TD>
-		  <TD align=center>价格</TD>
-		  <TD align=right>联系电话</TD>
-		  <TD align=right>发布时间</TD>
-		</TR>
-                    <%List inlist=hsb.get15In();if(!inlist.isEmpty()){
-					for(int job11=0;job11<inlist.size();job11++){
-						List jobList11=(List)inlist.get(job11);
-			%>
-        <TR>
-          <TD  align=left>
-		  <A href="<%=basePath%>ininfo.jsp?id=<%=jobList11.get(0).toString()%>" target=_blank><%=jobList11.get(1).toString()%></A>
-		   </TD>
-		   <TD align=center>
-		  <%=jobList11.get(2).toString()%>  
-		  </TD>
-		  <TD align=center>
-		  <%=jobList11.get(3).toString()%>  
-		  </TD>
-		  <TD align=right>
-		  <%=jobList11.get(4).toString()%>  
-		  </TD>
-		  <TD align=right>
-		  <%=jobList11.get(8).toString()%>  
-		  </TD>
-		</TR>
-		<%}} %>
-				</TBODY>
-			</TABLE>			
-			</TD>
-		</TR>
-        
-        </TBODY>
-	  </TABLE>
-	</TD>
-		</TR>
-       </TBODY>
-	  </TABLE>
-	 </TD>
-    </TR>
-  </TBODY>
-</TABLE>
-
-<!--*******************************2个信息分类开始*******************************-->
-<TABLE class=MainTable cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
-  <TBODY>
-  <TR>
-    <TD class=Side vAlign=top width="49%" height=100>
-      <TABLE class=dragTable cellSpacing=0 cellPadding=0 width="100%" border=0>
-		<TBODY>
-        <TR>
-          <TD class=head colspan="2">
-			<SPAN class=TAG>出售信息</SPAN> 
-			 </TD>
-		</TR>
-		<TR>
-		<TD  class=middle align="left" >
-               <TABLE class=xsnr id=tb1_nr1  cellSpacing=0 cellPadding=0 width="100%" border=0>
+             <TABLE class=xsnr id=tb1_nr1  cellSpacing=0 cellPadding=0 width="100%" border=0>
                     <TBODY>
                      <TR>
+           <TD  align=left>小区</TD>
           <TD  align=left>房屋类型</TD>
 		   <TD align=center>面积</TD>
 		  <TD align=center>价格</TD>
@@ -357,14 +297,17 @@ document.write('</object>');
 						List jobList11=(List)salelist.get(job11);
 			%>
         <TR>
+         <TD align=center>
+		  <%=jobList11.get(10)==null?"":jobList11.get(10).toString()%>  
+		  </TD>
           <TD  align=left>
 		  <A href="<%=basePath%>saleinfo.jsp?id=<%=jobList11.get(0).toString()%>" target=_blank><%=jobList11.get(1).toString()%></A>
 		   </TD>
 		   <TD align=center>
-		  <%=jobList11.get(3).toString()%>  
+		  <%=jobList11.get(3).toString()%>平方
 		  </TD>
 		  <TD align=center>
-		  <%=jobList11.get(4).toString()%>  
+		  <%=jobList11.get(4).toString()%> 万
 		  </TD>
 		  <TD align=right>
 		  <%=jobList11.get(5).toString()%>  
@@ -375,61 +318,7 @@ document.write('</object>');
 		</TR>
 		<%}} %>
 				</TBODY>
-			</TABLE>			
-			</TD>
-		</TR>
-        </TBODY>
-	  </TABLE>
-	</TD>
-    <TD class=Main vAlign=top align=middle width="49%" height=100>
-      <TABLE class=dragTable cellSpacing=0 cellPadding=0 width="100%" border=0>
-	  <TBODY>
-        <TR>
-          <TD class=head colspan="2">
-            <SPAN class=TAG>求购信息</SPAN> 
-          </TD>
-		</TR>
-		<TR>
-		<TD  class=middle align="left" >
-               <TABLE class=xsnr id=tb1_nr1  cellSpacing=0 cellPadding=0 width="100%" border=0>
-                    <TBODY>
-                          <TR>
-          <TD  align=left>房屋类型</TD>
-		   <TD align=center>面积</TD>
-		  <TD align=center>价格</TD>
-		  <TD align=right>联系电话</TD>
-		  <TD align=right>发布时间</TD>
-		</TR>
-                    <%List buylist=hsb.get15Buy();if(!buylist.isEmpty()){
-					for(int job11=0;job11<buylist.size();job11++){
-						List jobList11=(List)buylist.get(job11);
-			%>
-        <TR>
-          <TD  align=left>
-		  <A href="<%=basePath%>buyinfo.jsp?id=<%=jobList11.get(0).toString()%>" target=_blank><%=jobList11.get(1).toString()%></A>
-		   </TD>
-		   <TD align=center>
-		  <%=jobList11.get(2).toString()%>  
-		  </TD>
-		  <TD align=center>
-		  <%=jobList11.get(3).toString()%>  
-		  </TD>
-		  <TD align=right>
-		  <%=jobList11.get(4).toString()%>  
-		  </TD>
-		  <TD align=right>
-		  <%=jobList11.get(8).toString()%>  
-		  </TD>
-		</TR>
-		<%}} %>
-				</TBODY>
-			</TABLE>			
-			</TD>
-		</TR>
-        
-		</TR>
-        </TBODY>
-	  </TABLE>
+			</TABLE>	
 	</TD>
 		</TR>
        </TBODY>

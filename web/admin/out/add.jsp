@@ -65,10 +65,24 @@ String message = (String)request.getAttribute("message");
 	String method=request.getParameter("method").trim();
 	String id=request.getParameter("id");
 	String type="";String video="";String sum="";String price="";String tel="";String linkman="";String address="";String intro="";
+	String zt="";String sn1="";String htbh="";String fkje="";String fkr="";String fksj="";String bz="";String lxfs="";
+	 String qy="";String xq="";
 	if(method.equals("upOut")){
 		List list=hsb.getOneOut(Integer.parseInt(id));
 		type=list.get(1).toString();video=list.get(2).toString();sum=list.get(3).toString();price=list.get(4).toString();
 		tel=list.get(5).toString();linkman=list.get(6).toString();address=list.get(7).toString();intro=list.get(8).toString();
+		qy=list.get(10)==null?"":list.get(10).toString();
+		xq=list.get(11)==null?"":list.get(11).toString();
+		
+		sn1=list.get(12)==null?"":list.get(12).toString();
+		zt=list.get(13)==null?"":list.get(13).toString();
+		htbh=list.get(14)==null?"":list.get(14).toString();
+		fkje=list.get(15)==null?"":list.get(15).toString();
+		fkr=list.get(16)==null?"":list.get(16).toString();
+		lxfs=list.get(17)==null?"":list.get(17).toString();
+		fksj=list.get(18)==null?"":list.get(18).toString();
+		bz=list.get(19)==null?"":list.get(19).toString();
+		
 	}
 		
 %>
@@ -107,6 +121,70 @@ String message = (String)request.getAttribute("message");
 			<TD width=40% id=map align=right>地&nbsp;&nbsp;&nbsp;&nbsp;址：</TD>
 			<TD align=left><input type=text size=30 maxlength=50 name=address value=<%=address %>> </TD>
 		  </TR>
+		  
+		  
+		   <TR  align="center" bgColor=#ffffff>
+			<TD width=40% id=map align=right>状&nbsp;&nbsp;&nbsp;&nbsp;态：</TD>
+			<TD align=left>
+			
+				<select name="zt" value='<%=zt %>'>
+					<option value="可租" <%= "可租".equals(zt)?"selected='selected'":"" %>>可租</option>
+					<option value="已付定金"   <%= "已付定金".equals(zt)?"selected='selected'":"" %>>已付定金</option>
+					<option value="已租"  <%= "已租".equals(zt)?"selected='selected'":"" %> >已租</option>
+				</select>
+				
+			 </TD>
+		  </TR>
+		   
+		    <TR  align="center" bgColor=#ffffff>
+			<TD width=40% id=map align=right>区域：</TD>
+			<TD align=left><input type=text size=30 maxlength=50 name=qy value='<%=qy %>'> </TD>
+		  </TR>
+		  
+		   <TR  align="center" bgColor=#ffffff>
+			<TD width=40% id=map align=right>小区：</TD>
+			<TD align=left><input type=text size=30 maxlength=50 name=xq value='<%=xq %>'> </TD>
+		  </TR>
+		  
+		   
+		  <TR  align="center" bgColor=#ffffff>
+			<TD width=40% id=map align=right>信息编号：</TD>
+			<TD align=left><input type=text size=30 maxlength=50 name=sn value='<%=sn1 %>'> </TD>
+		  </TR>
+		  
+		  <TR  align="center" bgColor=#ffffff>
+			<TD width=40% id=map align=right>合同编号：</TD>
+			<TD align=left><input type=text size=30 maxlength=50 name=htbh value='<%=htbh %>'> </TD>
+		  </TR>
+		  
+		   <TR  align="center" bgColor=#ffffff>
+			<TD width=40% id=map align=right>付款金额：</TD>
+			<TD align=left><input type=text size=30 maxlength=50 name=fkje value='<%=fkje %>'> </TD>
+		  </TR>
+		  
+		   <TR  align="center" bgColor=#ffffff>
+			<TD width=40% id=map align=right>付款人：</TD>
+			<TD align=left><input type=text size=30 maxlength=50 name=fkr value='<%=fkr %>'> </TD>
+		  </TR>
+		  
+		   <TR  align="center" bgColor=#ffffff>
+			<TD width=40% id=map align=right>联系方式：</TD>
+			<TD align=left><input type=text size=30 maxlength=50 name=lxfs value='<%=lxfs %>'> </TD>
+		  </TR>
+		   
+		    <TR  align="center" bgColor=#ffffff>
+			<TD width=40% id=map align=right>付款时间：</TD>
+			<TD align=left><input type=text size=30 maxlength=50 name=fksj value='<%=fksj %>'> </TD>
+		  </TR>
+		  
+		   
+		    <TR  align="center" bgColor=#ffffff>
+			<TD width=40% id=map align=right>备注：</TD>
+			<TD align=left><input type=text size=30 maxlength=50 name=bz value='<%=bz %>'> </TD>
+		  </TR>
+		  
+		  
+		  
 		  
 		  <TR  align="center" bgColor=#ffffff>
 			<TD width=40% id=map align=right>图&nbsp;&nbsp;&nbsp;&nbsp;片：</TD>

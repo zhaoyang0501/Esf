@@ -46,7 +46,20 @@ public class HouseServlet extends HttpServlet
                 String linkman = request.getParameter("linkman");
                 String address = request.getParameter("address");
                 String intro = request.getParameter("intro");
-                int flag = houseBean.addOut(type, video, sum, price, tel, linkman, address, intro);
+                
+                String zt = request.getParameter("zt");
+                String sn = request.getParameter("sn");
+                String htbh = request.getParameter("htbh");
+                String fkje = request.getParameter("fkje");
+                String fkr = request.getParameter("fkr");
+                String fksj = request.getParameter("fksj");
+                String bz = request.getParameter("bz");
+                String lxfs = request.getParameter("lxfs");
+                
+                String qy = request.getParameter("qy");
+                String xq = request.getParameter("xq");
+                
+                int flag = houseBean.addOut(type, video, sum, price, tel, linkman, address, intro,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq);
                 if(flag == 1)
                 {
                     request.setAttribute("message", "\u64CD\u4F5C\u6210\u529F\uFF01");
@@ -70,7 +83,20 @@ public class HouseServlet extends HttpServlet
                 String linkman = request.getParameter("linkman");
                 String address = request.getParameter("address");
                 String intro = request.getParameter("intro");
-                int flag = houseBean.upOut(id, type, video, sum, price, tel, linkman, address, intro);
+                
+                
+                String zt = request.getParameter("zt");
+                String sn = request.getParameter("sn");
+                String htbh = request.getParameter("htbh");
+                String fkje = request.getParameter("fkje");
+                String fkr = request.getParameter("fkr");
+                String fksj = request.getParameter("fksj");
+                String bz = request.getParameter("bz");
+                String lxfs = request.getParameter("lxfs");
+                
+                
+                
+                int flag = houseBean.upOut(id, type, video, sum, price, tel, linkman, address, intro,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq);
                 if(flag == 1)
                 {
                     request.setAttribute("message", "\u64CD\u4F5C\u6210\u529F\uFF01");
@@ -105,7 +131,19 @@ public class HouseServlet extends HttpServlet
                 String linkman = request.getParameter("linkman");
                 String address = request.getParameter("address");
                 String intro = request.getParameter("intro");
-                int flag = houseBean.addSale(type, video, sum, price, tel, linkman, address, intro);
+                
+                String zt = request.getParameter("zt");
+                String sn = request.getParameter("sn");
+                String htbh = request.getParameter("htbh");
+                String fkje = request.getParameter("fkje");
+                String fkr = request.getParameter("fkr");
+                String fksj = request.getParameter("fksj");
+                String bz = request.getParameter("bz");
+                String lxfs = request.getParameter("lxfs");
+                
+                String qy = request.getParameter("qy");
+                String xq = request.getParameter("xq");
+                int flag = houseBean.addSale(type, video, sum, price, tel, linkman, address, intro,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq);
                 if(flag == 1)
                 {
                     request.setAttribute("message", "\u64CD\u4F5C\u6210\u529F\uFF01");
@@ -127,7 +165,21 @@ public class HouseServlet extends HttpServlet
                 String linkman = request.getParameter("linkman");
                 String address = request.getParameter("address");
                 String intro = request.getParameter("intro");
-                int flag = houseBean.upSale(id, type, video, sum, price, tel, linkman, address, intro);
+                
+                
+                String zt = request.getParameter("zt");
+                String sn = request.getParameter("sn");
+                String htbh = request.getParameter("htbh");
+                String fkje = request.getParameter("fkje");
+                String fkr = request.getParameter("fkr");
+                String fksj = request.getParameter("fksj");
+                String bz = request.getParameter("bz");
+                String lxfs = request.getParameter("lxfs");
+                
+                String qy = request.getParameter("qy");
+                String xq = request.getParameter("xq");
+                
+                int flag = houseBean.upSale(id, type, video, sum, price, tel, linkman, address, intro,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq);
                 if(flag == 1)
                 {
                     request.setAttribute("message", "\u64CD\u4F5C\u6210\u529F\uFF01");
@@ -163,7 +215,8 @@ public class HouseServlet extends HttpServlet
                 String linkman = request.getParameter("linkman");
                 String address = request.getParameter("address");
                 String intro = request.getParameter("intro");
-                int flag = houseBean.addIn(type, sum, price, tel, linkman, address, intro,xq,qy);
+                String username=(String)request.getSession().getAttribute("member");
+                int flag = houseBean.addIn(type, sum, price, tel, linkman, address, intro,xq,qy,username);
                 if(flag == 1)
                 {
                     request.setAttribute("message", "\u64CD\u4F5C\u6210\u529F\uFF01");
@@ -209,6 +262,23 @@ public class HouseServlet extends HttpServlet
                     request.getRequestDispatcher("admin/in/index.jsp").forward(request, response);
                 }
             } else
+                if(method.equals("delInowner"))
+                {
+                    String id = request.getParameter("id");
+                    int flag = houseBean.delIn(id);
+                    if(flag == 1)
+                    {
+                        request.setAttribute("message", "\u64CD\u4F5C\u6210\u529F\uFF01");
+                        request.getRequestDispatcher("member/qz.jsp").forward(request, response);
+                    } else
+                    {
+                        request.setAttribute("message", "\u7CFB\u7EDF\u7EF4\u62A4\u4E2D\uFF0C\u8BF7\u7A0D\u540E\u518D\u8BD5\uFF01");
+                        request.getRequestDispatcher("member/qz.jsp").forward(request, response);
+                    }
+                }
+                
+                
+                else
             if(method.equals("addBuy"))
             {
             	 String qy = request.getParameter("qy");
@@ -220,7 +290,8 @@ public class HouseServlet extends HttpServlet
                 String linkman = request.getParameter("linkman");
                 String address = request.getParameter("address");
                 String intro = request.getParameter("intro");
-                int flag = houseBean.addBuy(type, sum, price, tel, linkman, address, intro,xq,qy);
+                String username=(String)request.getSession().getAttribute("member");
+                int flag = houseBean.addBuy(type, sum, price, tel, linkman, address, intro,xq,qy,username);
                 if(flag == 1)
                 {
                     request.setAttribute("message", "\u64CD\u4F5C\u6210\u529F\uFF01");
@@ -231,6 +302,22 @@ public class HouseServlet extends HttpServlet
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
             } else
+                if(method.equals("delBuyowner"))
+                {
+                	 String id = request.getParameter("id");
+                     int flag = houseBean.delBuy(id);
+                     if(flag == 1)
+                     {
+                         request.setAttribute("message", "\u64CD\u4F5C\u6210\u529F\uFF01");
+                         request.getRequestDispatcher("member/qg.jsp").forward(request, response);
+                     } else
+                     {
+                         request.setAttribute("message", "\u7CFB\u7EDF\u7EF4\u62A4\u4E2D\uFF0C\u8BF7\u7A0D\u540E\u518D\u8BD5\uFF01");
+                         request.getRequestDispatcher("member/qg.jsp").forward(request, response);
+                     }
+                }
+                
+                else
             if(method.equals("upBuy"))
             {
                 String id = request.getParameter("id");

@@ -137,13 +137,13 @@ document.write('<div class="wrap">');
 	<A href="news.jsp" target="">新闻中心</A> |
 	
 	<A href="out.jsp" target="">出租信息</A> |
-	
+	<!-- 
 	<A href="in.jsp" target="">求租信息</A> |
-	
+	 -->
 	<A href="sale.jsp" target="">出售信息</A> |
-		 
+		 <!-- 
 	<A href="buy.jsp" target="">求购信息</A> |
-	
+	 -->
 	<A href="search.jsp" target="">信息检索</A> |
 	
 	<A href="login.jsp" target="">会员中心</A> 

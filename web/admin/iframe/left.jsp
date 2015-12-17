@@ -230,12 +230,26 @@ function expand(id_value){
     <TD background="<%=basePath %><%=dir %>/images/linkbg1.gif" >&nbsp;<IMG src="<%=basePath %><%=dir %>/images/menu.gif" align=absMiddle>统计报表管理</TD></TR>
   </TABLE>
   <TABLE width="100%" border="0" align="center" id=id_10 style="display:none">
+  
+  <!--  
   <TR ParentID="ConventionLastPic" AllParentID="ConventionLastPic">
     <TD noWrap width="35%"><IMG src="<%=basePath %><%=dir %>/images/bullet.gif" 
       align=absMiddle><SPAN style="CURSOR: default"> <a href="<%=basePath %><%=dir %>/tj/fw.jsp" target="MainFrame">房屋统计报表</a></SPAN></TD></TR>
   <TR ParentID="ConventionLastPic" AllParentID="ConventionLastPic">
     <TD noWrap width="35%"><IMG src="<%=basePath %><%=dir %>/images/bullet.gif" 
       align=absMiddle><SPAN style="CURSOR: default"> <a href="<%=basePath %><%=dir %>/tj/xszj.jsp" target="MainFrame">销售租金报表</a></SPAN></TD></TR>
+      
+    -->  
+       <TR ParentID="ConventionLastPic" AllParentID="ConventionLastPic">
+    <TD noWrap width="35%"><IMG src="<%=basePath %><%=dir %>/images/bullet.gif" 
+      align=absMiddle><SPAN style="CURSOR: default"> <a href="<%=basePath %><%=dir %>/tj/fw100.jsp" target="MainFrame">房屋出售统计报表</a></SPAN></TD></TR>
+      
+      
+       <TR ParentID="ConventionLastPic" AllParentID="ConventionLastPic">
+    <TD noWrap width="35%"><IMG src="<%=basePath %><%=dir %>/images/bullet.gif" 
+      align=absMiddle><SPAN style="CURSOR: default"> <a href="<%=basePath %><%=dir %>/tj/fw200.jsp" target="MainFrame">房屋出租统计报表</a></SPAN></TD></TR>
+      
+      
     </TABLE>
   </TD>
   </TR>

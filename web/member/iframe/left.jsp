@@ -75,6 +75,21 @@ function expand(id_value){
   	<TR ParentID="SystemLastArticle" AllParentID="SystemLastArticle">
     <TD noWrap width="35%"><IMG src="<%=basePath %>member/images/bullet.gif" 
       align=absMiddle><SPAN style="CURSOR: default"> <a href="<%=basePath %>member/info/<%=url %>" target="MainFrame">修改详细资料</a></SPAN></TD></TR>
+    <TR ParentID="SystemLastArticle" AllParentID="SystemLastArticle">
+    <TD noWrap width="35%"><IMG src="<%=basePath %>member/images/bullet.gif" 
+      align=absMiddle><SPAN style="CURSOR: default"> <a href="<%=basePath %>member/info/<%=url %>" target="MainFrame">修改详细资料</a></SPAN></TD></TR>
+    
+    <TR ParentID="SystemLastArticle" AllParentID="SystemLastArticle">
+    <TD noWrap width="35%"><IMG src="<%=basePath %>member/images/bullet.gif" 
+      align=absMiddle><SPAN style="CURSOR: default"> <a href="<%=basePath %>member/qg.jsp" target="MainFrame">我的求购信息</a></SPAN></TD></TR>
+     
+     <TR ParentID="SystemLastArticle" AllParentID="SystemLastArticle">
+    <TD noWrap width="35%"><IMG src="<%=basePath %>member/images/bullet.gif" 
+      align=absMiddle><SPAN style="CURSOR: default"> <a href="<%=basePath %>member/qz.jsp" target="MainFrame">我的求租信息</a></SPAN></TD></TR>
+      
+       
+      
+      
      <TR ParentID="SystemLastArticle" AllParentID="SystemLastArticle">
           <TD noWrap width="35%"><IMG src="<%=basePath %>member/images/bullet.gif" 
       align=absMiddle><SPAN style="CURSOR: default"> <a href="<%=basePath %>loginout.jsp" target="MainFrame">安全退出</a></SPAN></TD></TR>

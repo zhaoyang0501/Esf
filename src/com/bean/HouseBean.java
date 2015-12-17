@@ -35,6 +35,39 @@ public class HouseBean {
 			dbo.close();
 		}
 	}
+	
+	/**add 263608237qq
+	  String zt = request.getParameter("zt");
+      String sn = request.getParameter("sn");
+      String htbh = request.getParameter("htbh");
+      String fkje = request.getParameter("fkje");
+      String fkr = request.getParameter("fkr");
+      String fksj = request.getParameter("fksj");
+      String bz = request.getParameter("bz");
+      String lxfs = request.getParameter("lxfs");
+      */
+	public int addOut(String type,String video,String sum,String price,String tel,String linkman,String address,String intro,
+			String zt,String sn,String htbh,String fkje,String fkr,String fksj,String bz,String lxfs,String qy,String xq){
+		String sql="insert into outhouse(type,video,sum,price,tel,linkman,address,intro,addtime,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq)" +
+				"values('"+type+"','"+video+"','"+sum+"','"+price+"','"+tel+"','"+linkman+"','"
+				+address+"','"+intro+"','"+date+"','"+zt+"','"+sn+"','"+htbh+"','"+fkje+"','"+fkr+"','"+fksj+"','"+bz+"','"+lxfs+"','"+qy+"','"+xq+"')";
+		DBO dbo = new DBO();
+		dbo.open();
+		try{
+			int i = dbo.executeUpdate(sql);
+			if(i == 1){
+				return Constant.SUCCESS;
+			}
+			else{
+				return Constant.SYSTEM_ERROR;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return Constant.SYSTEM_ERROR;
+		}finally{
+			dbo.close();
+		}
+	}
 	////////////////////////////////////////////////////////////////////////////////////////////////////////出租 
 	//// 房屋的基本信息，地址，大小，房价，户型，视频   ////////户型 视频 面积 价格 联系人 电话 地址 介绍 发布时间
 	public int addOut(String type,String video,String sum,String price,String tel,String linkman,String address,String intro ){
@@ -57,6 +90,40 @@ public class HouseBean {
 			dbo.close();
 		}
 	}
+	
+	/**add 263608237qq
+	  String zt = request.getParameter("zt");
+    String sn = request.getParameter("sn");
+    String htbh = request.getParameter("htbh");
+    String fkje = request.getParameter("fkje");
+    String fkr = request.getParameter("fkr");
+    String fksj = request.getParameter("fksj");
+    String bz = request.getParameter("bz");
+    String lxfs = request.getParameter("lxfs");
+    */
+	
+	public int upOut(String id,String type,String video,String sum,String price,String tel,String linkman,String address,String intro,
+			String zt,String sn,String htbh,String fkje,String fkr,String fksj,String bz,String lxfs,String qy,String xq){
+		String sql ="update outhouse set qy='"+qy+"',xq='"+xq+"' , type='"+type+"',video='"+video+"',sum='"+sum+"',price='"+price+"',tel='"+tel+"',linkman='"+linkman+"'," +
+				"address='"+address+"',intro='"+intro+"' ,zt='"+zt+"' ,sn='"+sn+"' ,htbh='"+htbh+"',fkje='"+fkje+"' ,fkr='"+fkr+"',fksj='"+fksj+"' ,bz='"+bz+"',lxfs='"+lxfs+"'    where id ='"+id+"'";
+		DBO dbo = new DBO();
+		dbo.open();
+		try{
+			int i = dbo.executeUpdate(sql);
+			if(i == 1){
+				return Constant.SUCCESS;
+			}
+			else{
+				return Constant.SYSTEM_ERROR;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return Constant.SYSTEM_ERROR;
+		}finally{
+			dbo.close();
+		}
+	}
+	
 	public int upOut(String id,String type,String video,String sum,String price,String tel,String linkman,String address,String intro ){
 		String sql ="update outhouse set type='"+type+"',video='"+video+"',sum='"+sum+"',price='"+price+"',tel='"+tel+"',linkman='"+linkman+"'," +
 				"address='"+address+"',intro='"+intro+"'  where id ='"+id+"'";
@@ -96,6 +163,107 @@ public class HouseBean {
 			dbo.close();
 		}
 	}
+	/**根据编号查询*/
+	public List getAllOut2(String sn){
+		String sql="select * from outhouse where sn like '%"+sn+"%' order by id desc";
+		if(sn==null||"null".equals(sn))
+		 sql="select * from outhouse where sn like '%%' order by id desc";
+		DBO dbo = new DBO();
+		list=new ArrayList();
+		dbo.open();
+		try{
+			rs=dbo.executeQuery(sql);
+			while(rs.next()){
+				List list2=new ArrayList();
+				list2.add(rs.getString(1));
+				list2.add(rs.getString(2));
+				list2.add(rs.getString(3));
+				list2.add(rs.getString(4));
+				list2.add(rs.getString(5));
+				list2.add(rs.getString(6));
+				list2.add(rs.getString(7));
+				list2.add(rs.getString(8));
+				list2.add(rs.getString(9));
+				list2.add(rs.getString(10));
+				list2.add(rs.getString(11));
+				list2.add(rs.getString(12));
+				list2.add(rs.getString(13));
+				list2.add(rs.getString(14));
+				list2.add(rs.getString(15));
+				list2.add(rs.getString(16));
+				list2.add(rs.getString(17));
+				list2.add(rs.getString(18));
+				list2.add(rs.getString(19));
+				list2.add(rs.getString(20));
+				list.add(list2);
+			}
+			return list;
+		}catch(Exception e){
+			e.printStackTrace();
+			return list;
+		}finally{
+			dbo.close();
+		}
+	}
+	
+	
+	public List getReportSale(String begain,String end){
+		if(begain==null||"null".equals(begain)||"".equals(begain))
+			begain="1999-01-01";
+		if(end==null||"null".equals(end)||"".equals(end))
+			end="2019-01-01";
+		String sql="select zt,count(1) ,sum(t1.fkje) from salehouse  t1 "+
+			"where  zt is not null and t1.addtime>'"+begain+"' and t1.addtime<'"+end+"'"+
+			" group by t1.zt";
+		DBO dbo = new DBO();
+		list=new ArrayList();
+		dbo.open();
+		try{
+			rs=dbo.executeQuery(sql);
+			while(rs.next()){
+				List list2=new ArrayList();
+				list2.add(rs.getString(1));
+				list2.add(rs.getString(2));
+				list2.add(rs.getString(3));
+				list.add(list2);
+			}
+			return list;
+		}catch(Exception e){
+			e.printStackTrace();
+			return list;
+		}finally{
+			dbo.close();
+		}
+	}
+	public List getReportOut(String begain,String end){
+		if(begain==null||"null".equals(begain)||"".equals(begain))
+			begain="1999-01-01";
+		if(end==null||"null".equals(end)||"".equals(end))
+			end="2019-01-01";
+		String sql="select zt,count(1) ,sum(t1.fkje) from outhouse  t1 "+
+			"where  zt is not null and t1.addtime>'"+begain+"' and t1.addtime<'"+end+"'"+
+			" group by t1.zt";
+		DBO dbo = new DBO();
+		list=new ArrayList();
+		dbo.open();
+		try{
+			rs=dbo.executeQuery(sql);
+			while(rs.next()){
+				List list2=new ArrayList();
+				list2.add(rs.getString(1));
+				list2.add(rs.getString(2));
+				list2.add(rs.getString(3));
+				list.add(list2);
+			}
+			return list;
+		}catch(Exception e){
+			e.printStackTrace();
+			return list;
+		}finally{
+			dbo.close();
+		}
+	}
+	
 	public List getAllOut(){
 		String sql="select * from outhouse order by id desc";
 		DBO dbo = new DBO();
@@ -172,6 +340,16 @@ public class HouseBean {
 				list.add(rs.getString(8));
 				list.add(rs.getString(9));
 				list.add(rs.getString(10));
+				list.add(rs.getString(11));
+				list.add(rs.getString(12));
+				list.add(rs.getString(13));
+				list.add(rs.getString(14));
+				list.add(rs.getString(15));
+				list.add(rs.getString(16));
+				list.add(rs.getString(17));
+				list.add(rs.getString(18));
+				list.add(rs.getString(19));
+				list.add(rs.getString(20));
 			}
 			return list;
 		}catch(Exception e){
@@ -199,12 +377,37 @@ public class HouseBean {
 				list2.add(rs.getString(8));
 				list2.add(rs.getString(9));
 				list2.add(rs.getString(10));
+				list2.add(rs.getString(11));
+				list2.add(rs.getString(12));
 				list.add(list2);
 			}
 			return list;
 		}catch(Exception e){
 			e.printStackTrace();
 			return list;
+		}finally{
+			dbo.close();
+		}
+	}
+	
+	/**pzy*/
+	public int addSale(String type,String video,String sum,String price,String tel,String linkman,String address,String intro,
+			String zt,String sn,String htbh,String fkje,String fkr,String fksj,String bz,String lxfs,String qy,String xq){
+		String sql="insert into salehouse(type,video,sum,price,tel,linkman,address,intro,addtime,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq)" +
+				"values('"+type+"','"+video+"','"+sum+"','"+price+"','"+tel+"','"+linkman+"','"+address+"','"+intro+"','"+date+"','"+zt+"','"+sn+"','"+htbh+"','"+fkje+"','"+fkr+"','"+fksj+"','"+bz+"','"+lxfs+"','"+qy+"','"+xq+"')";
+		DBO dbo = new DBO();
+		dbo.open();
+		try{
+			int i = dbo.executeUpdate(sql);
+			if(i == 1){
+				return Constant.SUCCESS;
+			}
+			else{
+				return Constant.SYSTEM_ERROR;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return Constant.SYSTEM_ERROR;
 		}finally{
 			dbo.close();
 		}
@@ -231,6 +434,30 @@ public class HouseBean {
 			dbo.close();
 		}
 	}
+		
+	/**pzy*/
+	public int upSale(String id,String type,String video,String sum,String price,String tel,String linkman,String address,String intro ,
+			String zt,String sn,String htbh,String fkje,String fkr,String fksj,String bz,String lxfs,String qy,String xq){
+		String sql ="update salehouse set qy='"+qy+"',xq='"+xq+"', type='"+type+"',video='"+video+"',sum='"+sum+"',price='"+price+"',tel='"+tel+"',linkman='"+linkman+"'," +
+				"address='"+address+"',intro='"+intro+"' ,zt='"+zt+"' ,sn='"+sn+"' ,htbh='"+htbh+"',fkje='"+fkje+"' ,fkr='"+fkr+"',fksj='"+fksj+"' ,bz='"+bz+"',lxfs='"+lxfs+"'   where id ='"+id+"'";
+		DBO dbo = new DBO();
+		dbo.open();
+		try{
+			int i = dbo.executeUpdate(sql);
+			if(i == 1){
+				return Constant.SUCCESS;
+			}
+			else{
+				return Constant.SYSTEM_ERROR;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return Constant.SYSTEM_ERROR;
+		}finally{
+			dbo.close();
+		}
+	}
+	
 	public int upSale(String id,String type,String video,String sum,String price,String tel,String linkman,String address,String intro ){
 		String sql ="update salehouse set type='"+type+"',video='"+video+"',sum='"+sum+"',price='"+price+"',tel='"+tel+"',linkman='"+linkman+"'," +
 				"address='"+address+"',intro='"+intro+"'  where id ='"+id+"'";
@@ -266,6 +493,51 @@ public class HouseBean {
 		}catch(Exception e){
 			e.printStackTrace();
 			return Constant.SYSTEM_ERROR;
+		}finally{
+			dbo.close();
+		}
+	}
+	/**add 263608236qq*/
+	public List getAllSale2(String sn){
+		String sql="select * from salehouse where sn like '%"+sn+"%' order by id desc";
+		if(sn==null||"null".equals(sn))
+		 sql="select * from salehouse where sn like '%%' order by id desc";
+		DBO dbo = new DBO();
+		list=new ArrayList();
+		dbo.open();
+		try{
+			rs=dbo.executeQuery(sql);
+			while(rs.next()){
+				List list2=new ArrayList();
+				list2.add(rs.getString(1));
+				list2.add(rs.getString(2));
+				list2.add(rs.getString(3));
+				list2.add(rs.getString(4));
+				list2.add(rs.getString(5));
+				list2.add(rs.getString(6));
+				list2.add(rs.getString(7));
+				list2.add(rs.getString(8));
+				list2.add(rs.getString(9));
+				list2.add(rs.getString(10));
+				
+				
+				list2.add(rs.getString(11));
+				list2.add(rs.getString(12));
+				list2.add(rs.getString(13));
+				list2.add(rs.getString(14));
+				list2.add(rs.getString(15));
+				list2.add(rs.getString(16));
+				list2.add(rs.getString(17));
+				list2.add(rs.getString(18));
+				list2.add(rs.getString(19));
+				list2.add(rs.getString(20));
+				
+				list.add(list2);
+			}
+			return list;
+		}catch(Exception e){
+			e.printStackTrace();
+			return list;
 		}finally{
 			dbo.close();
 		}
@@ -318,6 +590,8 @@ public class HouseBean {
 				list2.add(rs.getString(8));
 				list2.add(rs.getString(9));
 				list2.add(rs.getString(10));
+				list2.add(rs.getString(11));
+				list2.add(rs.getString(12));
 				list.add(list2);
 			}
 			return list;
@@ -346,6 +620,17 @@ public class HouseBean {
 				list.add(rs.getString(8));
 				list.add(rs.getString(9));
 				list.add(rs.getString(10));
+				
+				list.add(rs.getString(11));
+				list.add(rs.getString(12));
+				list.add(rs.getString(13));
+				list.add(rs.getString(14));
+				list.add(rs.getString(15));
+				list.add(rs.getString(16));
+				list.add(rs.getString(17));
+				list.add(rs.getString(18));
+				list.add(rs.getString(19));
+				list.add(rs.getString(20));
 			}
 			return list;
 		}catch(Exception e){
@@ -377,9 +662,9 @@ public class HouseBean {
 			dbo.close();
 		}
 	}
-	public int addIn(String type,String sum,String price,String tel,String linkman,String address,String intro,String xq,String qy ){
-		String sql="insert into inhouse(type,sum,price,tel,linkman,address,intro,addtime,xq,qy)" +
-				"values('"+type+"','"+sum+"','"+price+"','"+tel+"','"+linkman+"','"+address+"','"+intro+"','"+date+"','"+xq+"','"+qy+"')";
+	public int addIn(String type,String sum,String price,String tel,String linkman,String address,String intro,String xq,String qy ,String username){
+		String sql="insert into inhouse(type,sum,price,tel,linkman,address,intro,addtime,xq,qy,username)" +
+				"values('"+type+"','"+sum+"','"+price+"','"+tel+"','"+linkman+"','"+address+"','"+intro+"','"+date+"','"+xq+"','"+qy+"','"+username+"')";
 		DBO dbo = new DBO();
 		dbo.open();
 		try{
@@ -436,6 +721,36 @@ public class HouseBean {
 			dbo.close();
 		}
 	}
+	/**pzy*/
+	public List getAllInw(String username){
+		String sql="select * from inhouse where username='"+username+"' order by id desc";
+		DBO dbo = new DBO();
+		list=new ArrayList();
+		dbo.open();
+		try{
+			rs=dbo.executeQuery(sql);
+			while(rs.next()){
+				List list2=new ArrayList();
+				list2.add(rs.getString(1));
+				list2.add(rs.getString(2));
+				list2.add(rs.getString(3));
+				list2.add(rs.getString(4));
+				list2.add(rs.getString(5));
+				list2.add(rs.getString(6));
+				list2.add(rs.getString(7));
+				list2.add(rs.getString(8));
+				list2.add(rs.getString(9));
+				list.add(list2);
+			}
+			return list;
+		}catch(Exception e){
+			e.printStackTrace();
+			return list;
+		}finally{
+			dbo.close();
+		}
+	}
+	
 	public List getAllIn(){
 		String sql="select * from inhouse order by id desc";
 		DBO dbo = new DBO();
@@ -569,9 +884,9 @@ public class HouseBean {
 			dbo.close();
 		}
 	}
-	public int addBuy(String type,String sum,String price,String tel,String linkman,String address,String intro,String xq,String qy ){
-		String sql="insert into buyhouse(type,sum,price,tel,linkman,address,intro,addtime,xq,qy)" +
-				"values('"+type+"','"+sum+"','"+price+"','"+tel+"','"+linkman+"','"+address+"','"+intro+"','"+date+"','"+xq+"','"+qy+"')";
+	public int addBuy(String type,String sum,String price,String tel,String linkman,String address,String intro,String xq,String qy,String username ){
+		String sql="insert into buyhouse(type,sum,price,tel,linkman,address,intro,addtime,xq,qy,username)" +
+				"values('"+type+"','"+sum+"','"+price+"','"+tel+"','"+linkman+"','"+address+"','"+intro+"','"+date+"','"+xq+"','"+qy+"','"+username+"')";
 		DBO dbo = new DBO();
 		dbo.open();
 		try{
@@ -630,6 +945,38 @@ public class HouseBean {
 			dbo.close();
 		}
 	}
+	
+	
+	
+	public List getAllBuy(String username){
+		String sql="select * from buyhouse where username='"+username+"' order by id desc";
+		DBO dbo = new DBO();
+		list=new ArrayList();
+		dbo.open();
+		try{
+			rs=dbo.executeQuery(sql);
+			while(rs.next()){
+				List list2=new ArrayList();
+				list2.add(rs.getString(1));
+				list2.add(rs.getString(2));
+				list2.add(rs.getString(3));
+				list2.add(rs.getString(4));
+				list2.add(rs.getString(5));
+				list2.add(rs.getString(6));
+				list2.add(rs.getString(7));
+				list2.add(rs.getString(8));
+				list2.add(rs.getString(9));
+				list.add(list2);
+			}
+			return list;
+		}catch(Exception e){
+			e.printStackTrace();
+			return list;
+		}finally{
+			dbo.close();
+		}
+	}
+	
 	public List getAllBuy(){
 		String sql="select * from buyhouse order by id desc";
 		DBO dbo = new DBO();

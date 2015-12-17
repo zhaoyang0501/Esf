@@ -207,30 +207,34 @@ if(str.equals("出售")){
                <TABLE class=xsnr id=tb1_nr1  cellSpacing=0 cellPadding=0 width="100%" border=0>
                     <TBODY>
          <TR>
-          <TD  align=left>房屋类型</TD>
-		   <TD align=center>面积</TD>
-		  <TD align=center>价格</TD>
-		  <TD align=right>联系电话</TD>
-		  <TD align=right>发布时间</TD>
+           <TD  align=left style="width:  10%">小区</TD>
+          <TD  align=left style="width:  10%">房屋类型</TD>
+		   <TD align=center  style="width:  20%">面积</TD>
+		  <TD align=center  style="width:  20%">价格</TD>
+		  <TD align=center  style="width:  20%">联系电话</TD>
+		  <TD align=center  style="width:  20%" >发布时间</TD>
 		</TR>
                     <%if(!list.isEmpty()){
 					for(int job11=0;job11<list.size();job11++){
 						List jobList11=(List)list.get(job11);
 			%>
         <TR>
+         <TD align=center>
+		  <%=jobList11.get(10)==null?"":jobList11.get(10).toString()%>
+		  </TD>
           <TD  align=left>
 		  <A href="<%=basePath%>saleinfo.jsp?id=<%=jobList11.get(0).toString()%>" target=_blank><%=jobList11.get(1).toString()%></A>
 		   </TD>
 		   <TD align=center>
-		  <%=jobList11.get(3).toString()%>  
+		  <%=jobList11.get(3).toString()%>平方米  
 		  </TD>
 		  <TD align=center>
-		  <%=jobList11.get(4).toString()%>  
+		  <%=jobList11.get(4).toString()%>万
 		  </TD>
-		  <TD align=right>
+		  <TD align=center>
 		  <%=jobList11.get(5).toString()%>  
 		  </TD>
-		  <TD align=right>
+		  <TD align=center>
 		  <%=jobList11.get(9).toString()%>  
 		  </TD>
 		</TR>
@@ -311,10 +315,10 @@ list=hsb.getAllIn(sql3);
 		  <A href="<%=basePath%>ininfo.jsp?id=<%=jobList11.get(0).toString()%>" target=_blank><%=jobList11.get(1).toString()%></A>
 		   </TD>
 		   <TD align=center>
-		  <%=jobList11.get(2).toString()%>  
+		  <%=jobList11.get(2).toString()%>平方米  
 		  </TD>
 		  <TD align=center>
-		  <%=jobList11.get(3).toString()%>  
+		  <%=jobList11.get(3).toString()%>万
 		  </TD>
 		  <TD align=right>
 		  <%=jobList11.get(4).toString()%>  
@@ -400,10 +404,10 @@ list=hsb.getAllIn(sql4);
 		  <A href="<%=basePath%>buyinfo.jsp?id=<%=jobList11.get(0).toString()%>" target=_blank><%=jobList11.get(1).toString()%></A>
 		   </TD>
 		   <TD align=center>
-		  <%=jobList11.get(2).toString()%>  
+		  <%=jobList11.get(2).toString()%> 平方米  
 		  </TD>
 		  <TD align=center>
-		  <%=jobList11.get(3).toString()%>  
+		  <%=jobList11.get(3).toString()%>万
 		  </TD>
 		  <TD align=right>
 		  <%=jobList11.get(4).toString()%>  
@@ -474,30 +478,34 @@ list=hsb.getAllOut(sql);
                <TABLE class=xsnr id=tb1_nr1  cellSpacing=0 cellPadding=0 width="100%" border=0>
                     <TBODY>
          <TR>
-          <TD  align=left>房屋类型</TD>
-		   <TD align=center>面积</TD>
-		  <TD align=center>价格</TD>
-		  <TD align=right>联系电话</TD>
-		  <TD align=right>发布时间</TD>
+           <TD  align=left style="width:  10%">小区</TD>
+          <TD  align=left style="width:  10%">房屋类型</TD>
+		   <TD align=center  style="width:  20%">面积</TD>
+		  <TD align=center  style="width:  20%">价格</TD>
+		  <TD align=center  style="width:  20%">联系电话</TD>
+		  <TD align=center  style="width:  20%" >发布时间</TD>
 		</TR>
                     <%if(!list.isEmpty()){
 					for(int job11=0;job11<list.size();job11++){
 						List jobList11=(List)list.get(job11);
 			%>
         <TR>
+         <TD align=center>
+		  <%=jobList11.get(11)==null?"":jobList11.get(11).toString()  %> 
+		  </TD>
           <TD  align=left>
 		  <A href="<%=basePath%>outinfo.jsp?id=<%=jobList11.get(0).toString()%>" target=_blank><%=jobList11.get(1).toString()%></A>
 		   </TD>
 		   <TD align=center>
-		  <%=jobList11.get(3).toString()%>  
+		  <%=jobList11.get(3).toString()%> 平方米  
 		  </TD>
 		  <TD align=center>
-		  <%=jobList11.get(4).toString()%>  
+		  <%=jobList11.get(4).toString()%>  万
 		  </TD>
-		  <TD align=right>
+		  <TD align=center>
 		  <%=jobList11.get(5).toString()%>  
 		  </TD>
-		  <TD align=right>
+		  <TD align=center>
 		  <%=jobList11.get(9).toString()%>  
 		  </TD>
 		</TR>

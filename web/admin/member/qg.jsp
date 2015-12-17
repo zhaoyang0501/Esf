@@ -36,15 +36,6 @@ String message = (String)request.getAttribute("message");
 	else{
 %>
 <BODY oncontextmenu="return false;" onselectstart="return false;" leftMargin=0 background=<%=basePath %><%=dir%>/images/MainBg.gif topMargin=0 scroll=yes marginheight="0" marginwidth="0">
-<form action="<%=basePath %>/admin/sale/index.jsp" method="post">
-		<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0 style="margin-bottom: 20px">
-		<TR>
-		    <TD align="center" vAlign=top >
-		    编号：<input name='sn' size="12"/> <button type="submit">查询</button>
-		    </TD>
-		    </TR>
-		</TABLE>
-</form>
 <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
   <TBODY>
   <TR>
@@ -53,8 +44,6 @@ String message = (String)request.getAttribute("message");
 <TBODY><!-- 户型 视频 面积 价格 电话 联系人  地址 介绍 发布时间 -->
      <tr class="head"> 
       <td width="5%" align="center">序号</td>
-         <td align="center">信息编号</td>
-       <td align="center">小区</td>
       <td  align="center">户型</td>
       <td  align="center">面积</td>
       <td  align="center">价格</td>
@@ -65,26 +54,23 @@ String message = (String)request.getAttribute("message");
       <td  align="center">修改</td>
       <td  align="center">删除</td>
     </tr>
-    <%	List pagelist3=hsb.getAllSale2(request.getParameter("sn"));
+    <%	List pagelist3=hsb.getAllBuy();
 				if(!pagelist3.isEmpty()){
 				for(int i=0;i<pagelist3.size();i++){
 					List pagelist2 =(ArrayList)pagelist3.get(i);				
 			%> 
 	<tr  class="trA" onMouseOver="this.className='trB'" onMouseOut="this.className='trA'"> 
       <td width='5%' align="center" style="border-bottom:1px dotted #ccc;"><%=i+1 %></td>
-        <td width='5%' align="center" style="border-bottom:1px dotted #ccc;"><%=pagelist2.get(12)==null?"":pagelist2.get(12).toString() %></td>
-        <td width='5%' align="center" style="border-bottom:1px dotted #ccc;"><%=pagelist2.get(10)==null?"":pagelist2.get(10).toString() %></td>
-    
       <td align="center" bgcolor="#FFFFFF"  style="border-bottom:1px dotted #ccc;">
       <a title="信息预览" href="<%=basePath %>outinfo.jsp?id=<%=pagelist2.get(0).toString()%>" target="_blank"><%=pagelist2.get(1).toString() %></a></td>
+      <td align="center" bgcolor="#FFFFFF"  style="border-bottom:1px dotted #ccc;"><%=pagelist2.get(2).toString()%></td>
       <td align="center" bgcolor="#FFFFFF"  style="border-bottom:1px dotted #ccc;"><%=pagelist2.get(3).toString() %></td>
       <td align="center" bgcolor="#FFFFFF"  style="border-bottom:1px dotted #ccc;"><%=pagelist2.get(4).toString() %></td>
       <td align="center" bgcolor="#FFFFFF"  style="border-bottom:1px dotted #ccc;"><%=pagelist2.get(5).toString() %></td>
       <td align="center" bgcolor="#FFFFFF"  style="border-bottom:1px dotted #ccc;"><%=pagelist2.get(6).toString()%></td>
-      <td align="center" bgcolor="#FFFFFF"  style="border-bottom:1px dotted #ccc;"><%=pagelist2.get(7).toString()%></td>
-      <td align="center" bgcolor="#FFFFFF"  style="border-bottom:1px dotted #ccc;"><%=pagelist2.get(9).toString()%></td>
-      <td align="center" bgcolor="#FFFFFF"  style="border-bottom:1px dotted #ccc;"><a href="<%=basePath %>admin/sale/add.jsp?method=upSale&id=<%=pagelist2.get(0).toString()%>">修改</a></td>
-      <td align="center" bgcolor="#FFFFFF"  style="border-bottom:1px dotted #ccc;"><a href="<%=basePath %>HouseServlet?method=delSale&id=<%=pagelist2.get(0).toString()%>">删除</a></td>
+      <td align="center" bgcolor="#FFFFFF"  style="border-bottom:1px dotted #ccc;"><%=pagelist2.get(8).toString()%></td>
+      <td align="center" bgcolor="#FFFFFF"  style="border-bottom:1px dotted #ccc;"><a href="<%=basePath %>admin/buy/add.jsp?method=upBuy&id=<%=pagelist2.get(0).toString()%>">修改</a></td>
+      <td align="center" bgcolor="#FFFFFF"  style="border-bottom:1px dotted #ccc;"><a href="<%=basePath %>HouseServlet?method=delBuy&id=<%=pagelist2.get(0).toString()%>">删除</a></td>
     </tr>
 	
 <%
