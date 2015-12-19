@@ -96,13 +96,43 @@ document.write('<div class="wrap">');
 		  </TD>
 		
 		<TR>
-            <td  width=35% align=right > 
+            <td colspan="2" width=35% align=left > 
+            
+            
+             <%
+            if(list.get(2)!=null&&!"".equals(list.get(2)))
+            	{%>
+            	<img alt="振兴" src= <%=basePath %>/<%=list.get(2).toString()%> height = 200 weight =200 >
+             <%} %>
+            
+            
+            <%
+            if(list.get(20)!=null&&!"".equals(list.get(20)))
+            	{%>
+            	<img alt="振兴" src= <%=basePath %>/<%=list.get(20).toString()%> height = 200 weight =200 >
+             <%} %>
+             
+              <%
+            if(list.get(21)!=null&&!"".equals(list.get(21)))
+            	{%>
+            	<img alt="振兴" src= <%=basePath %>/<%=list.get(21).toString()%> height = 200 weight =200 >
+             <%} %>
+             
+              <%
+            if(list.get(22)!=null&&!"".equals(list.get(22)))
+            	{%>
+            	<img alt="振兴" src= <%=basePath %>/<%=list.get(22).toString()%> height = 200 weight =200 >
+             <%} %>
+             
+             
+              <%
+            if(list.get(23)!=null&&!"".equals(list.get(23)))
+            	{%>
+            	<img alt="振兴" src= <%=basePath %>/<%=list.get(23).toString()%> height = 200 weight =200 >
+             <%} %>
+             
 		  
-		  </TD>
-		  <td > 
-		  <img alt="振兴" src= <%=basePath %>/<%=list.get(2).toString()%> height = 200 weight =200 >
-		  
-		  
+		 
 		  </TD>
 		</TR>
 		

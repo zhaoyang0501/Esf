@@ -34,10 +34,10 @@ function check()
 	
 }
 
-function up()
+function up(id)
 		    {
 		        var pop=new Popup({ contentType:1,isReloadOnClose:false,width:400,height:200});
-	            pop.setContent("contentUrl","<%=basePath %>/upload/upload.jsp");
+	            pop.setContent("contentUrl","<%=basePath %>/upload/upload.jsp?id="+id);
 	            pop.setContent("title","文件上传");
 	            pop.build();
 	            pop.show();
@@ -68,7 +68,9 @@ String message = (String)request.getAttribute("message");
 	String type="";String video="";String sum="";String price="";String tel="";String linkman="";String address="";String intro="";
 	String zt="";String sn1="";String htbh="";String fkje="";String fkr="";String fksj="";String bz="";String lxfs="";
 	 String qy="";String xq="";
-	if(method.equals("upSale")){
+	 String img1="";String img2="";
+	 String img3="";String img4="";
+	 if(method.equals("upSale")){
 		List list=hsb.getOneSale(Integer.parseInt(id));
 		type=list.get(1).toString();video=list.get(2).toString();sum=list.get(3).toString();price=list.get(4).toString();
 		tel=list.get(5).toString();linkman=list.get(6).toString();address=list.get(7).toString();intro=list.get(8).toString();
@@ -82,7 +84,10 @@ String message = (String)request.getAttribute("message");
 		lxfs=list.get(17)==null?"":list.get(17).toString();
 		fksj=list.get(18)==null?"":list.get(18).toString();
 		bz=list.get(19)==null?"":list.get(19).toString();
-		
+		img1=list.get(20)==null?"":list.get(20).toString();
+		img2=list.get(21)==null?"":list.get(21).toString();
+		img3=list.get(22)==null?"":list.get(22).toString();
+		img4=list.get(23)==null?"":list.get(23).toString();
 	}
 		
 %>
@@ -183,11 +188,50 @@ String message = (String)request.getAttribute("message");
 		  
 		  
 		  <TR  align="center" bgColor=#ffffff>
-			<TD width=40% id=map align=right>图&nbsp;&nbsp;&nbsp;&nbsp;片：</TD>
+			<TD width=40% id=map align=right>图&nbsp;&nbsp;&nbsp;&nbsp;片1：</TD>
 			<TD align=left>
 			<input type=text size=30 maxlength=50 name=video value=<%=video %>> 
 			 
-			 <input type="button" value="上传" onclick="up()"/>
+			 <input type="button" value="上传" onclick="up('video')"/>
+			</TD>
+		  </TR>
+		  
+		  
+		   <TR  align="center" bgColor=#ffffff>
+			<TD width=40% id=map align=right>图&nbsp;&nbsp;&nbsp;&nbsp;片2：</TD>
+			<TD align=left>
+			<input type=text size=30 maxlength=50 name=img1 value=<%=img1 %>> 
+			 
+			 <input type="button" value="上传" onclick="up('img1')"/>
+			</TD>
+		  </TR>
+		  
+		  
+		   <TR  align="center" bgColor=#ffffff>
+			<TD width=40% id=map align=right>图&nbsp;&nbsp;&nbsp;&nbsp;片3：</TD>
+			<TD align=left>
+			<input type=text size=30 maxlength=50 name=img2 value=<%=img2 %>> 
+			 
+			 <input type="button" value="上传" onclick="up('img2')"/>
+			</TD>
+		  </TR>
+		  
+		   <TR  align="center" bgColor=#ffffff>
+			<TD width=40% id=map align=right>图&nbsp;&nbsp;&nbsp;&nbsp;片4：</TD>
+			<TD align=left>
+			<input type=text size=30 maxlength=50 name=img3 value=<%=img3 %>> 
+			 
+			 <input type="button" value="上传" onclick="up('img3')"/>
+			</TD>
+		  </TR>
+		  
+		  
+		   <TR  align="center" bgColor=#ffffff>
+			<TD width=40% id=map align=right>图&nbsp;&nbsp;&nbsp;&nbsp;片5：</TD>
+			<TD align=left>
+			<input type=text size=30 maxlength=50 name=img4 value=<%=img4 %>> 
+			 
+			 <input type="button" value="上传" onclick="up('img4')"/>
 			</TD>
 		  </TR>
 		  

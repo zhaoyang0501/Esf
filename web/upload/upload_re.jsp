@@ -8,9 +8,11 @@ String path = request.getContextPath();
     
     String newFile1Name=null;
     String file_name=null;
-    
+    String id="";
 	SmartUpload mySmartUpload = new SmartUpload();
-
+	/*  com.jspsmart.upload.Reuqest req=new com.jspsmart.upload.Request();
+	String id=req.getParameter("id"); */
+	
 	//初始化上传
 	mySmartUpload.initialize(pageContext);
 
@@ -49,7 +51,8 @@ String path = request.getContextPath();
                //{
                    newFile1Name=new Date().getTime()+file_name.substring(file_name.indexOf("."));
 	               System.out.println("新文件名称："+newFile1Name);
-				
+	               id=mySmartUpload.getRequest().getParameter("id");
+	               System.out.println("新文件名称---22--------mySmartUpload.-----："+id);
 				   String saveurl = request.getSession().getServletContext().getRealPath("upload");
 				
 				   saveurl = saveurl+"/"+newFile1Name;
@@ -66,6 +69,6 @@ String path = request.getContextPath();
 
 <script language="javascript"> 
     document.write("上传成功");
-	window.parent.document.getElementById("video").value="/upload/<%= newFile1Name%>";
+	window.parent.document.getElementById("<%=id%>").value="/upload/<%= newFile1Name%>";
 	//window.parent.document.getElementById("fujianYuanshiming").value="<%= file_name%>";
 </script>

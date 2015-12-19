@@ -59,7 +59,13 @@ public class HouseServlet extends HttpServlet
                 String qy = request.getParameter("qy");
                 String xq = request.getParameter("xq");
                 
-                int flag = houseBean.addOut(type, video, sum, price, tel, linkman, address, intro,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq);
+                
+                String img1 = request.getParameter("img1");
+                String img2 = request.getParameter("img2");
+                String img3 = request.getParameter("img3");
+                String img4 = request.getParameter("img4");
+                
+                int flag = houseBean.addOut(type, video, sum, price, tel, linkman, address, intro,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq,img1,img2,img3,img4);
                 if(flag == 1)
                 {
                     request.setAttribute("message", "\u64CD\u4F5C\u6210\u529F\uFF01");
@@ -94,9 +100,12 @@ public class HouseServlet extends HttpServlet
                 String bz = request.getParameter("bz");
                 String lxfs = request.getParameter("lxfs");
                 
+                String img1 = request.getParameter("img1");
+                String img2 = request.getParameter("img2");
+                String img3 = request.getParameter("img3");
+                String img4 = request.getParameter("img4");
                 
-                
-                int flag = houseBean.upOut(id, type, video, sum, price, tel, linkman, address, intro,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq);
+                int flag = houseBean.upOut(id, type, video, sum, price, tel, linkman, address, intro,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq,img1,img2,img3,img4);
                 if(flag == 1)
                 {
                     request.setAttribute("message", "\u64CD\u4F5C\u6210\u529F\uFF01");
@@ -143,7 +152,17 @@ public class HouseServlet extends HttpServlet
                 
                 String qy = request.getParameter("qy");
                 String xq = request.getParameter("xq");
-                int flag = houseBean.addSale(type, video, sum, price, tel, linkman, address, intro,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq);
+                
+                
+                
+                String img1 = request.getParameter("img1");
+                String img2 = request.getParameter("img2");
+                String img3 = request.getParameter("img3");
+                String img4 = request.getParameter("img4");
+                
+                
+                
+                int flag = houseBean.addSale(type, video, sum, price, tel, linkman, address, intro,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq,img1,img2,img3,img4);
                 if(flag == 1)
                 {
                     request.setAttribute("message", "\u64CD\u4F5C\u6210\u529F\uFF01");
@@ -179,7 +198,14 @@ public class HouseServlet extends HttpServlet
                 String qy = request.getParameter("qy");
                 String xq = request.getParameter("xq");
                 
-                int flag = houseBean.upSale(id, type, video, sum, price, tel, linkman, address, intro,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq);
+                
+                String img1 = request.getParameter("img1");
+                String img2 = request.getParameter("img2");
+                String img3 = request.getParameter("img3");
+                String img4 = request.getParameter("img4");
+                
+                
+                int flag = houseBean.upSale(id, type, video, sum, price, tel, linkman, address, intro,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq,img1,img2,img3,img4);
                 if(flag == 1)
                 {
                     request.setAttribute("message", "\u64CD\u4F5C\u6210\u529F\uFF01");

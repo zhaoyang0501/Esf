@@ -29,6 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
        <form action="<%=path %>/upload/upload_re.jsp" name="formAdd" method="post"  enctype="multipart/form-data">
            <input type="file" name="video" id="video" onKeyDown="javascript:alert('此信息不能手动输入');return false;" />
+           <input type="hidden" name='id' value="<%=request.getParameter("id") %>" >
            <input type="submit" value="提交" onclick="return check()"/>
        </form>
   </body>

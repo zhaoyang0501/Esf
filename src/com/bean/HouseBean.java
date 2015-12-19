@@ -47,10 +47,12 @@ public class HouseBean {
       String lxfs = request.getParameter("lxfs");
       */
 	public int addOut(String type,String video,String sum,String price,String tel,String linkman,String address,String intro,
-			String zt,String sn,String htbh,String fkje,String fkr,String fksj,String bz,String lxfs,String qy,String xq){
-		String sql="insert into outhouse(type,video,sum,price,tel,linkman,address,intro,addtime,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq)" +
+			String zt,String sn,String htbh,String fkje,String fkr,String fksj,String bz,String lxfs,String qy,String xq,
+			String img1,String img2,String img3,String img4){
+		String sql="insert into outhouse(type,video,sum,price,tel,linkman,address,intro,addtime,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq,img1,img2,img3,img4)" +
 				"values('"+type+"','"+video+"','"+sum+"','"+price+"','"+tel+"','"+linkman+"','"
-				+address+"','"+intro+"','"+date+"','"+zt+"','"+sn+"','"+htbh+"','"+fkje+"','"+fkr+"','"+fksj+"','"+bz+"','"+lxfs+"','"+qy+"','"+xq+"')";
+				+address+"','"+intro+"','"+date+"','"+zt+"','"+sn+"','"+htbh+"','"+fkje+"','"
+				+fkr+"','"+fksj+"','"+bz+"','"+lxfs+"','"+qy+"','"+xq+"','"+img1+"','"+img2+"','"+img3+"','"+img4+"')";
 		DBO dbo = new DBO();
 		dbo.open();
 		try{
@@ -103,8 +105,10 @@ public class HouseBean {
     */
 	
 	public int upOut(String id,String type,String video,String sum,String price,String tel,String linkman,String address,String intro,
-			String zt,String sn,String htbh,String fkje,String fkr,String fksj,String bz,String lxfs,String qy,String xq){
-		String sql ="update outhouse set qy='"+qy+"',xq='"+xq+"' , type='"+type+"',video='"+video+"',sum='"+sum+"',price='"+price+"',tel='"+tel+"',linkman='"+linkman+"'," +
+			String zt,String sn,String htbh,String fkje,String fkr,String fksj,String bz,String lxfs,String qy,String xq,
+			String img1,String img2,String img3,String img4
+			){
+		String sql ="update outhouse set  img1='"+img1+"',img2='"+img2+"' , img3='"+img3+"', img4='"+img4+"' , qy='"+qy+"',xq='"+xq+"' , type='"+type+"',video='"+video+"',sum='"+sum+"',price='"+price+"',tel='"+tel+"',linkman='"+linkman+"'," +
 				"address='"+address+"',intro='"+intro+"' ,zt='"+zt+"' ,sn='"+sn+"' ,htbh='"+htbh+"',fkje='"+fkje+"' ,fkr='"+fkr+"',fksj='"+fksj+"' ,bz='"+bz+"',lxfs='"+lxfs+"'    where id ='"+id+"'";
 		DBO dbo = new DBO();
 		dbo.open();
@@ -350,6 +354,10 @@ public class HouseBean {
 				list.add(rs.getString(18));
 				list.add(rs.getString(19));
 				list.add(rs.getString(20));
+				list.add(rs.getString(21));
+				list.add(rs.getString(22));
+				list.add(rs.getString(23));
+				list.add(rs.getString(24));
 			}
 			return list;
 		}catch(Exception e){
@@ -392,9 +400,9 @@ public class HouseBean {
 	
 	/**pzy*/
 	public int addSale(String type,String video,String sum,String price,String tel,String linkman,String address,String intro,
-			String zt,String sn,String htbh,String fkje,String fkr,String fksj,String bz,String lxfs,String qy,String xq){
-		String sql="insert into salehouse(type,video,sum,price,tel,linkman,address,intro,addtime,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq)" +
-				"values('"+type+"','"+video+"','"+sum+"','"+price+"','"+tel+"','"+linkman+"','"+address+"','"+intro+"','"+date+"','"+zt+"','"+sn+"','"+htbh+"','"+fkje+"','"+fkr+"','"+fksj+"','"+bz+"','"+lxfs+"','"+qy+"','"+xq+"')";
+			String zt,String sn,String htbh,String fkje,String fkr,String fksj,String bz,String lxfs,String qy,String xq,String img1,String img2,String img3,String img4){
+		String sql="insert into salehouse(type,video,sum,price,tel,linkman,address,intro,addtime,zt,sn,htbh,fkje,fkr,fksj,bz,lxfs,qy,xq,img1,img2,img3,img4)" +
+				"values('"+type+"','"+video+"','"+sum+"','"+price+"','"+tel+"','"+linkman+"','"+address+"','"+intro+"','"+date+"','"+zt+"','"+sn+"','"+htbh+"','"+fkje+"','"+fkr+"','"+fksj+"','"+bz+"','"+lxfs+"','"+qy+"','"+xq+"','"+img1+"','"+img2+"','"+img3+"','"+img4+"')";
 		DBO dbo = new DBO();
 		dbo.open();
 		try{
@@ -437,8 +445,8 @@ public class HouseBean {
 		
 	/**pzy*/
 	public int upSale(String id,String type,String video,String sum,String price,String tel,String linkman,String address,String intro ,
-			String zt,String sn,String htbh,String fkje,String fkr,String fksj,String bz,String lxfs,String qy,String xq){
-		String sql ="update salehouse set qy='"+qy+"',xq='"+xq+"', type='"+type+"',video='"+video+"',sum='"+sum+"',price='"+price+"',tel='"+tel+"',linkman='"+linkman+"'," +
+			String zt,String sn,String htbh,String fkje,String fkr,String fksj,String bz,String lxfs,String qy,String xq,String img1,String img2,String img3,String img4){
+		String sql ="update salehouse set img1='"+img1+"',img2='"+img2+"', img3='"+img3+"',img4='"+img4+"',  qy='"+qy+"',xq='"+xq+"', type='"+type+"',video='"+video+"',sum='"+sum+"',price='"+price+"',tel='"+tel+"',linkman='"+linkman+"'," +
 				"address='"+address+"',intro='"+intro+"' ,zt='"+zt+"' ,sn='"+sn+"' ,htbh='"+htbh+"',fkje='"+fkje+"' ,fkr='"+fkr+"',fksj='"+fksj+"' ,bz='"+bz+"',lxfs='"+lxfs+"'   where id ='"+id+"'";
 		DBO dbo = new DBO();
 		dbo.open();
@@ -631,6 +639,11 @@ public class HouseBean {
 				list.add(rs.getString(18));
 				list.add(rs.getString(19));
 				list.add(rs.getString(20));
+				
+				list.add(rs.getString(21));
+				list.add(rs.getString(22));
+				list.add(rs.getString(23));
+				list.add(rs.getString(24));
 			}
 			return list;
 		}catch(Exception e){
